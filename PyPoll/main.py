@@ -33,6 +33,8 @@ with open(analysis_txt, "w") as txtfile:
     txtfile.write("--------------------------\n")
     txtfile.write(f"Total Votes: {vote_count}\n")
     txtfile.write("--------------------------\n")
+
+    # Finding percentage of vote and winner
     for key, value in cand_list.items():
         percent_vote = (value / vote_count) * 100
         print(f"{key}: ${percent_vote:.3f}% ({value})")
