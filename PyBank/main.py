@@ -2,6 +2,7 @@ import os
 import csv
 
 budget_csv = os.path.join(".", "Resources", "budget_data.csv")
+analysis_txt = os.path.join(".", "Analysis", "analysis.txt")
 
 with open(budget_csv, encoding='utf-8-sig') as csvfile:
 
@@ -39,13 +40,23 @@ with open(budget_csv, encoding='utf-8-sig') as csvfile:
         no_of_months += 1 
     average = sum(change_profit) / len(change_profit)
     
-    print('''Financial Analysis
---------------------''')
-    print(f"Total Months: {no_of_months}")
-    print(f"Total: ${total_profit}")
-    print(f"Average Change: ${average:.2f}")
-    print(f"Greatest Increase in Profits: {max_date} {max_change}")
-    print(f"Greatest Decrease in Profits: {min_date} {min_change}")
+    with open(analysis_txt, "w") as txtfile:
+        txtfile.write("Financial Analysis\n")
+        txtfile.write("------------------\n")
+        txtfile.write(f"Total Months: {no_of_months}\n")
+        txtfile.write(f"Total: ${total_profit}\n")
+        txtfile.write(f"Average Change: ${average:.2f}\n")
+        txtfile.write(f"Greatest Increase in Profits: {max_date} {max_change}\n")
+        txtfile.write(f"Greatest Decrease in Profits: {min_date} {min_change}\n")
+
+        print("\nFinancial Analysis")
+        print("------------------")
+        print(f"Total Months: {no_of_months}")
+        print(f"Total: ${total_profit}")
+        print(f"Average Change: ${average:.2f}")
+        print(f"Greatest Increase in Profits: {max_date} {max_change}")
+        print(f"Greatest Decrease in Profits: {min_date} {min_change}")
+
 
 
        
